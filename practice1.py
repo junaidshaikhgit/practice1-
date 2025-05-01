@@ -62,3 +62,19 @@ print(list(set(lst)))
 
 #[1, 2, 3, 4, 5]
 
+#create a decorator that modifies the return value of a function
+def my_decor(func1):
+    def wrapper(*args, **kwargs):
+        print("function before")
+        func1(*args, **kwargs)
+        print("function after")
+    return wrapper
+
+@my_decor
+def say_hello(name):
+    print(f"hello, {name}")
+say_hello("junaid")
+'''function before
+hello, junaid
+function after'''
+
